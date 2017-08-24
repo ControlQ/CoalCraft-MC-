@@ -1,0 +1,27 @@
++package me.scojo.test;
++
++import org.bukkit.Bukkit;
++import org.bukkit.ChatColor;
++import org.bukkit.command.Command;
++import org.bukkit.command.CommandSender;
++import org.bukkit.entity.Player;
++import org.bukkit.plugin.java.JavaPlugin;
++
++public class Test extends JavaPlugin {
++//Removed onEnable & onDisable As The Server Automactically Logs
++	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
++		//See's If Sender Is Not A Player.
++		if (!(sender instanceof Player)) {
++			sender.sendMessage(ChatColor.AQUA + "The console ran the test command! Good job!");
++			return true;
++		}
++		//States Sender Is A Player And Makes A Player Variable With The Sender
++		Player player = (Player) sender;
++		//Checks If Command Is /test
++		if (cmd.getName().equalsIgnoreCase("test")) {
++     //Sends The Player A Message
++			player.sendMessage(ChatColor.GOLD + "You ran the test command! Good job!");
++		}
++		return false;
++	}
++}
